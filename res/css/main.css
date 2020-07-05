@@ -1,0 +1,155 @@
+@font-face {
+    font-family: OpenSans;
+    src: url('../fonts/OpenSans-Bold.ttf');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: OpenSans;
+    src: url('../fonts/OpenSans-Regular.ttf');
+    font-weight: normal;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: OpenSans;
+    user-select: none;
+}
+
+body {
+    margin: 0;
+    font-size: 14px;
+}
+
+.m-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.view {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100vw;
+    animation: view .4s;
+}
+
+.no-anim {
+    animation: none !important;
+}
+
+input, textarea {
+    outline: none;
+}
+
+@keyframes view {
+    0% {
+        margin-left: 100px;
+        opacity: 0;
+    }
+}
+
+.popup {
+    width: 100vw;
+    position: fixed;
+    z-index: 101;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+#popup-inner {
+    max-width: 60%;
+    max-height: 40%;
+    background-color: #ffffff;
+    padding: 16px;
+    padding-top: 40px;
+    border-radius: 10px;
+    position: relative;
+    min-width: 120px;
+    min-height: 100px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    display: none;
+    animation: popup .4s forwards;
+    transform-origin: 50% 50%;
+}
+
+#popup-close-btn {
+    position: absolute;
+    right: 10px;
+    top: 0px;
+    font-size: 25px;
+}
+
+#popup-title {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background-color: #e8e8e8;
+    border-radius: 10px 10px 0 0;
+    padding: 5px 20px 5px 10px;
+    width: 100%;
+    font-size: 18px;
+}
+
+.popup-open {
+    display: flex;
+    transform: scale(1);
+}
+
+.popup-open>#popup-inner {
+    display: block;
+}
+
+@keyframes popup {
+    0% {
+        transform: scale(.8);
+        opacity: 0;
+    }
+}
+
+.loading {
+    width: 100vw;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.loading>div {
+    padding: 14px;
+    border-radius: 50%;
+    border: 4px solid #2299ff;
+    border-top-color: transparent;
+    animation: loading .7s infinite linear;
+}
+
+.loading-on {
+    display: flex;
+}
+
+@keyframes loading {
+    100% {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="res/icons/mchat_icon_256.png" type="image/x-icon">
+    <link rel="stylesheet" href="res/css/bootstrap.min.css">
+    <link rel="stylesheet" href="res/css/main.css">
+    <link rel="stylesheet" href="res/css/splash.css">
+    <title>MChat</title>
+</head>
+
+<body>
+
+    <div class="view m-center" id="splash">
+        <img src="res/icons/mchat_icon_256.png" class="splash-anim">
+        <div class="shadow"></div>
+    </div>
+
+    <div class="view" id="newStart">
+        <div class="text-center d-flex justify-content-center align-items-center flex-grow-1 flex-column">
+            <img src="res/icons/mchat_banner2.png" style="width: 130px;"><br><br>
+            <button class="btn btn-primary" onclick="window.location.href='auth.html'">
+                Let's Start
+            </button>
+        </div>
+        <div style="padding: 20px;" class="text-center">
+            <img src="res/icons/mchat_icon_256.png" style="width: 60px;">
+            <img src="res/icons/bugcat_banner.png" style="width: 80px;">
+            <div style="font-size: 12px;">
+                <br>by Munish Kumar <br>
+                <a href="https://bugcatstudio.ga">https://bugcatstudio.ga</a><br>
+                
+                By using this you will agree to our <a href="https://bugcatstudio.ga/terms.html">Terms and
+                    Conditions</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="view" id="no-response">
+        <div class="m-center text-center">
+            <img src="res/icons/mchat_icon_256.png" style="width:100px;">
+            <h5>Hmm..</h5>
+            <h6>Server not Responding</h6>
+            <p>It may fix after 24 Hours</p>
+            <button class="btn btn-primary btn-sm" onclick="window.location.href = 'index.html'">Try Again</button>
+            <br><br>
+            Report Problem at
+            <br><a href="mailto:bugcatstudio@gmail.com">bugcatstudio@gmail.com</a><br>
+            <p style="font-size: 12px;">Error Code: SERVER_RESPONSE_NULL</p>
+        </div>
+    </div>
+
+    <div class="view" id="valid"></div>
+
+    <script src="res/js/link.js"></script>
+    <script src="res/js/jquery-3.5.1.min.js"></script>
+    <script src="res/js/view.js"></script>
+
+    <script src="cordova.js"></script>
+    <script src="cordova_plugins.js"></script>
+
+    <script src="res/js/splash.js"></script>
+</body>
+
+</html>

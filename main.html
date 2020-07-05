@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        if (localStorage.getItem("mchat_username") === null)
+            window.location.href = "index.html";
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="res/css/bootstrap.min.css">
+    <link rel="stylesheet" href="res/css/main.css">
+    <link rel="stylesheet" href="res/css/user.css">
+    <link rel="shortcut icon" href="res/icons/mchat_icon_256.png" type="image/x-icon">
+    <title>MChat</title>
+</head>
+
+<body>
+    <div class="view" id="main">
+
+        <div class="header">
+            <img id="user-profile" src="res/icons/profile.png" class="icon">
+            <span id="user-name"></span>
+            <hr>
+            <img src="res/icons/side-menu.png" class="icon" style="margin: 0;" onclick="view('setting-view')">
+        </div>
+        <div class="tile" style="background-color: #2299ff;margin-top: 52px;color: #ffffff;">
+            All Chats
+        </div>
+        <div id="allChats"></div>
+        <div class="newChat" onclick="view('newChatView'); searchInit();"></div>
+    </div>
+
+    <div class="view" id="conversation">
+
+        <div class="header">
+            <img onclick="view('main');localStorage.removeItem('mchat_receiver');checkInteractions();"
+                src="res/icons/back-btn-white.png" style="margin-right: 0;" class="icon-small">
+            <img id="receiver-profile" src="res/icons/profile.png" class="icon">
+            <span id="receiver-name">Unknown</span>
+        </div>
+
+        <div id="messages" class="flex-grow-1 pt-2"></div>
+
+        <div class="d-flex align-items-center p-2"
+            style="background-color:#ffffff;position: fixed;width: 100vw;bottom: 0;">
+            <div class="d-flex align-items-center flex-grow-1"
+                style="background-color: #eeeeee;margin: 2px;border-radius: 16px;">
+                <textarea
+                    style="height:26px;font-size:16px;border: none;margin: 10px 20px;background-color: transparent;"
+                    placeholder="Type a message" id="messageFeild" class="flex-grow-1"></textarea>
+                <!--img src="res/icons/image.png" style="width: 22px;margin: 0 16px;"-->
+            </div>
+            <div class="m-1"></div>
+            <div id="sendButton" onclick="sendMessage()"></div>
+        </div>
+    </div>
+
+    <div class="view" id="setting-view">
+
+        <div class="header">
+            <img onclick="view('main')" src="res/icons/back-btn-white.png" class="icon">
+            Setting
+        </div>
+        <div style="margin-top: 60px;"></div>
+        <div class="tile" onclick="signout()">
+            <img src="res/icons/logout-icon.png" class="icon-small">
+            Logout
+        </div>
+        <div class="tile" onclick="view('about')">
+            <img src="res/icons/info-btn.png" class="icon-small">
+            About
+        </div>
+
+
+    </div>
+    <div class="view" id="about">
+        <div class="header">
+            <img onclick="view('main')" src="res/icons/back-btn-white.png" class="icon">
+            About
+        </div>
+        <div style="margin-top: 60px;"></div>
+        <div class="text-center"><br>
+            <img src="res/icons/mchat_icon_512.png" style="width:100px;"><br>
+            <h5>MChat</h5>
+            by <br>
+            <h6>Munish Kumar</h6>
+            <br>
+            Visit here <br>
+            <a href="https://bugcatstudio.ga">https://bugcatstudio.ga</a><br>
+            <div>
+                <br>v1.0 beta <br>
+            Email: <a href="mailto:bugcatstudio@gmail.com">bugcatstudio@gmail.com</a>
+            </div>
+            
+        </div>
+
+    </div>
+    <div class="view" id="newChatView">
+        <div class="header">
+            <img onclick="view('main');" src="res/icons/back-btn-white.png" class="icon">Start New Chat
+        </div>
+        <div style="height: 54px;"></div>
+        <div class="bg-light p-3 d-flex align-items-center">
+            <img src="res/icons/search.png" style="width: 30px;">
+            <input id="searchInput" onkeyup="searchUser(this.value)" type="text" placeholder="Search"
+                style="margin-left:20px;font-size:18px;border: none;background-color: transparent;">
+        </div>
+        <div id="user-search" style="display: none;"></div>
+    </div>
+
+    <script src="res/js/jquery-3.5.1.min.js"></script>
+    <script src="res/js/link.js"></script>
+    <script src="res/js/view.js"></script>
+    <script src="res/js/user.js"></script>
+    <script src="cordova.js"></script>
+    <script src="cordova_plugins.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        if (localStorage.getItem("mchat_username") !== null)
+            window.location.href = "main.html";
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="res/css/bootstrap.min.css">
+    <link rel="stylesheet" href="res/css/main.css">
+    <link rel="stylesheet" href="res/css/auth.css">
+    <link rel="shortcut icon" href="res/icons/mchat_icon_256.png" type="image/x-icon">
+    <title>MChat</title>
+</head>
+
+<body>
+
+    <div class="view m-center" id="login-view">
+        <div>
+            <h5 class="text-center">Login</h5>
+            <div class="pt-3 text-danger" id="login-user-err"></div>
+            Username <br>
+            <input type="text" id="login-user" class="border rounded p-2 w-100"><br><br>
+            <div class="text-danger" id="login-pass-err"></div>
+            Password <br>
+            <input type="password" id="login-pass" class="border rounded p-2 w-100"><br><br>
+            <button class="btn btn-primary w-100" onclick="login()">Login</button>
+            <div class="text-center">
+                <hr>
+                <a href="javascript:view('signup-view');">Create Account</a><br>
+                <a href="javascript:view('forgot-view')">Forgot Password</a><br>
+            </div>
+        </div>
+    </div>
+
+    <div class="view m-center" id="signup-view">
+        <div>
+            <div class="text-center">
+                <img onclick="view('login-view')" src="res/icons/back-btn.png" style="width: 30px;cursor: pointer;">
+                <br><br>
+            </div>
+            <h5 class="text-center">Create Account</h5>
+            <div class="text-danger pt-3" id="username-err"></div>
+            Username* <br>
+            <input type="text" id="signup-user" onkeyup="usernameValidate()" class="border rounded p-2 w-100"><br><br>
+            <div class="text-danger" id="email-err"></div>
+            Email* <br>
+            <input type="email" id="signup-email" onkeyup="emailValidate()" class="border rounded p-2 w-100"><br><br>
+            <div class="text-danger" id="pass-err"></div>
+            Password* <br>
+            <input type="password" id="signup-pass" onkeyup="passwordValidate('signup-pass','pass-err','signup-btn-0')"
+                class="border rounded p-2 w-100"><br><br>
+            <div class="text-danger pb-2" id="signup-err-1"></div>
+            <button class="btn btn-primary w-100" onclick="signup_0()" id="signup-btn-0">Next</button>
+        </div>
+    </div>
+
+    <div class="view m-center" id="signup-view-2">
+        <div>
+            <div class="text-center">
+                <img onclick="view('signup-view')" src="res/icons/back-btn.png" style="width: 30px;cursor: pointer;">
+                <br><br>
+            </div>
+            <h5 class="text-center">Personal Details</h5><br>
+            <input type="file" id="signup-image" onchange="imageValidate(event)" hidden>
+            <label for="signup-image" class="d-block text-center">
+                <div id="signup-image-0" class="profile-image">
+                    <div>Select</div>
+                </div>
+                <div class="text-danger text-center" id="signup-image-err"></div>
+            </label>
+            <div class="text-danger pt-2" id="name-err"></div>
+            Name* <br>
+            <input type="text" id="signup-name" onkeyup="textValidate('signup-name','name-err','signup-btn',false)"
+                class="border rounded p-2 w-100"><br><br>
+            Gender <br>
+            <select id="signup-gender" class="border rounded p-2 w-100 bg-light">
+                <option value="Unknown">Prefer not to Say</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+            <br><br>
+            <button class="btn btn-primary w-100" id="signup-btn" onclick="signup()">Create</button>
+        </div>
+    </div>
+    <div class="view m-center" id="forgot-view">
+        <div>
+            <div class="text-center">
+                <img onclick="view('login-view')" src="res/icons/back-btn.png" style="width: 30px;cursor: pointer;">
+                <br><br>
+            </div>
+            <h5 class="text-center">Reset Password</h5><br>
+            <div class="text-danger pt-2" id="reset-user-err"></div>
+            Username <br>
+            <input type="text" id="reset-user" class="border rounded p-2 w-100"><br><br>
+            <div class="alert alert-primary">A Verification Code will<br>be sent to your email<br>address.</div>
+            <button class="btn btn-primary w-100" onclick="reset_0()">Next</button>
+        </div>
+    </div>
+    <div class="view m-center" id="forgot-view-2">
+        <div>
+            <h5 class="text-center">Reset Password</h5><br>
+            <div class="text-danger pt-2" id="reset-code-err"></div>
+            Verification Code <br>
+            <input type="text" id="reset-code" class="border rounded p-2 w-100"><br><br>
+            <div class="text-danger" id="reset-pass-err"></div>
+            New Password <br>
+            <input type="password" id="reset-pass" class="border rounded p-2 w-100"
+                onkeyup="passwordValidate('reset-pass','reset-pass-err','reset-btn')"><br><br>
+            <button class="btn btn-primary w-100" id="reset-btn" onclick="reset()">Done</button>
+            <hr>
+            <div class="text-center">
+                <a href="javascript:view('login-view')">Cancel</a>
+            </div>
+        </div>
+    </div>
+    <script src="cordova.js"></script>
+    <script src="cordova_plugins.js"></script>
+
+    <script src="res/js/jquery-3.5.1.min.js"></script>
+    <script src="res/js/view.js"></script>
+    <script src="res/js/link.js"></script>
+    <script src="res/js/auth.js"></script>
+    <script>
+        view('login-view');
+    </script>
+</body>
+
+</html>

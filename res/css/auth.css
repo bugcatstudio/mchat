@@ -1,0 +1,19 @@
+.profile-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+    display: inline-flex;
+    justify-content: center;
+    align-items: flex-end;
+    background-image: url("../icons/profile.png");
+    overflow: hidden;
+}
+
+.profile-image>div {
+    padding: 2px 0 10px 0;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+}
